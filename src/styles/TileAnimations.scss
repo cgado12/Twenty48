@@ -1,0 +1,211 @@
+/* new tile */
+.new {
+  transform: scale(0);
+  animation: new linear forwards;
+  animation-duration: 0.15s;
+  animation-delay: 0.35s;
+}
+
+@keyframes new {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+// Tile Combined
+.combined {
+  animation: combine-pop linear forwards;
+
+  animation-duration: .2s;
+}
+
+@keyframes combine-pop {
+  0% {
+    transform: scale(0.6);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+// SLIDE RIGHT
+.hor-r-1 {
+  animation: slideRight1 0.2s linear forwards;
+}
+
+.hor-r-2 {
+  animation: slideRight2 0.2s linear forwards;
+}
+
+.hor-r-3 {
+  animation: slideRight3 0.2s linear forwards;
+}
+
+@keyframes slideRight1 {
+  from {
+    transform: translateX(-125px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight2 {
+  from {
+    transform: translateX(-250px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight3 {
+  from {
+    transform: translateX(-375px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+// SLIDE LEFT 
+.hor-l-1 {
+  animation: slideLeft1 0.2s linear forwards;
+}
+
+.hor-l-2 {
+  animation: slideLeft2 0.2s linear forwards;
+}
+
+.hor-l-3 {
+  animation: slideLeft3 0.2s linear forwards;
+}
+
+@keyframes slideLeft1 {
+  from {
+    transform: translateX(125px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideLeft2 {
+  from {
+    transform: translateX(250px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideLeft3 {
+  from {
+    transform: translateX(375px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+// SLIDE UP
+.ver-u-1 {
+  animation: slideUp1 0.2s linear forwards;
+}
+
+.ver-u-2 {
+  animation: slideUp2 0.2s linear forwards;
+}
+
+.ver-u-3 {
+  animation: slideUp3 0.2s linear forwards;
+}
+
+@keyframes slideUp1 {
+  from {
+    transform: translateY(125px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp2 {
+  from {
+    transform: translateY(250px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp3 {
+  from {
+    transform: translateY(375px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+// SLIDE DOWN
+.ver-d-1 {
+  animation: slideDown1 0.2s linear forwards;
+}
+
+.ver-d-2 {
+  animation: slideDown2 0.2s linear forwards;
+}
+
+.ver-d-3 {
+  animation: slideDown3 0.2s linear forwards;
+}
+
+@keyframes slideDown1 {
+  from {
+    transform: translateY(-125px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown2 {
+  from {
+    transform: translateY(-250px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown3 {
+  from {
+    transform: translateY(-375px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}

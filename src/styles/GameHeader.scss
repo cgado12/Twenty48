@@ -1,0 +1,219 @@
+  .gameboard {
+    &-header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 10px;
+
+      &-c1 {
+        padding: 0px 20px 0px 20px;
+        border: 2px solid black;
+        border-radius: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+
+        &-light {
+          background-color: #9e9491;
+          color: #423d33;
+        }
+
+        &-dark {
+          background-color: #423d33;
+          color: #7e7e7e;
+        }
+
+        h1 {
+          margin: 0;
+          letter-spacing: 3px;
+
+        }
+      }
+
+      &-c2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 15px;
+        margin-right: 15px;
+
+        .score {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 20vw;
+          border: 2px solid black;
+          border-radius: 10px;
+          padding: 2px;
+          min-width: fit-content;
+
+          &-light {
+            background-color: #9e9491;
+            color: #423d33;
+          }
+
+          &-dark {
+            background-color: #423d33;
+            color: #7e7e7e;
+          }
+
+          h4 {
+            padding-bottom: 10px;
+          }
+
+          h2 {
+            padding-bottom: 5px;
+          }
+
+          h4,
+          h2 {
+            margin: 0;
+
+          }
+
+          @media screen and (max-device-width : 600px) {
+            h2 {
+              font-size: 4vw
+            }
+          }
+        }
+
+        .new-game {
+          height: 3vh;
+          min-height: fit-content;
+          min-width: max-content;
+          border: 2px solid black;
+          border-radius: 10px;
+          padding: 2px;
+          box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.60%);
+
+          &-light {
+            background-color: #9e9491;
+            color: #423d33;
+          }
+
+          &-dark {
+            background-color: #423d33;
+            color: #7e7e7e;
+          }
+
+          span {
+            display: flex;
+            height: inherit;
+            justify-content: center;
+            align-items: center;
+          }
+
+          &-light:hover {
+            background-color: #867a76;
+
+            &:active {
+              background-color: #867a76;
+              transform: translateY(4px);
+            }
+          }
+
+          &-dark:hover {
+            background-color: #343028;
+
+            &:active {
+              background-color: #343028;
+              transform: translateY(4px);
+            }
+          }
+
+
+        }
+      }
+
+      &-c3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .best-score {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 20vw;
+          border: 2px solid black;
+          border-radius: 10px;
+          padding: 2px;
+          min-width: fit-content;
+
+          &-light {
+            background-color: #9e9491;
+            color: #423d33;
+          }
+
+          &-dark {
+            background-color: #423d33;
+            color: #7e7e7e;
+          }
+
+          h4 {
+            padding-bottom: 10px;
+          }
+
+          h2 {
+            padding-bottom: 5px;
+          }
+
+          h4,
+          h2 {
+            margin: 0;
+          }
+
+          @media screen and (max-device-width : 600px) {
+            h2 {
+              font-size: 4vw
+            }
+          }
+        }
+
+        .clear {
+          height: 3vh;
+          min-height: fit-content;
+          min-width: max-content;
+          border: 2px solid black;
+          border-radius: 10px;
+          padding: 2px;
+          box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.60%);
+
+          &-light {
+            background-color: #9e9491;
+            color: #423d33;
+          }
+
+          &-dark {
+            background-color: #423d33;
+            color: #7e7e7e;
+          }
+
+          span {
+            display: flex;
+            height: inherit;
+            justify-content: center;
+            align-items: center;
+          }
+
+          &-light:hover {
+            background-color: #867a76;
+
+            &:active {
+              background-color: #867a76;
+              transform: translateY(4px);
+            }
+          }
+
+          &-dark:hover {
+            background-color: #343028;
+
+            &:active {
+              background-color: #343028;
+              transform: translateY(4px);
+            }
+          }
+        }
+      }
+    }
+  }

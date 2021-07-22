@@ -1,0 +1,112 @@
+.gameboard {
+  &-board {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 5px;
+    margin-top: 10px;
+    border-radius: 10px;
+
+    &-light {
+      background-color: #9e9491;
+    }
+
+    &-dark {
+      background-color: #423d33;
+    }
+
+    &-row {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+
+      .underlay {
+        border: 2px black solid;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        width: 20%;
+        height: 8vh;
+        margin: 1%;
+        overflow: visible;
+
+
+        &-light {
+          background-color: #897474;
+        }
+
+        &-dark {
+          background-color: #7e7e7e;
+        }
+
+
+        .board-tile {
+          border: 2px black solid;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 10%;
+          height: 8vh;
+          padding: 20px;
+          position: absolute;
+          z-index: 1;
+          margin: -2%;
+
+          &-light {
+            background-color: #897474;
+          }
+
+          &-dark {
+            background-color: #7e7e7e;
+          }
+
+          .board-value {
+            font-size: 2.7rem;
+          }
+
+          @media screen and (max-width : 650px) {
+            .board-value {
+              font-size: 2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width : 600px) and (max-height: 700px) {
+  .gameboard {
+    width: 90%;
+    height: 70%;
+
+    &-header {
+      margin-bottom: 0;
+    }
+
+    &-board {
+      color: red;
+      margin: 0 3vh;
+      margin-bottom: 15vh;
+
+      &-row {
+        // margin: 1vw;
+
+        .board-tile {
+          padding: 2vw;
+          width: 10vw;
+          height: 5vh;
+          overflow: auto;
+
+          .board-value {
+            font-size: 1.65rem;
+          }
+        }
+      }
+    }
+  }
+}
