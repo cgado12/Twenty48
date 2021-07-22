@@ -18,7 +18,7 @@ Please consider pulling the repo or downloading the project as a zip! To run loc
 - [ ] Investigate tile box glitch on tiles right before they slide to new position.
 - [ ] Write tests 
 - [ ] Feature to inc/dec the amount of rows/cols
-- [ ] Make Game-Over show at the right time and create a nice modal for it
+- [ ] Create a nice modal for Gameover and Game won
 - [ ] Build with Electron
 - [ ] Create builds for mobile
 - [ ] Configure [eslint](https://moduscreate.com/blog/lint-style-typescript/) and [prettier]( https://prettier.io/docs/en/options.html)

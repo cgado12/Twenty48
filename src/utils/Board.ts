@@ -1,5 +1,5 @@
 import { cloneDeep } from 'lodash';
-import { transposeGrid, flipGrid, compare, isGameOver } from './BoardUtils';
+import { transposeGrid, flipGrid, compare } from './BoardUtils';
 import { CHOICE_ARR, CHOICE_ARR_LEN, DEFAULT_GAMEBOARD, DEFAULT_ROW_LEN } from './Constants';
 import { Tile } from './Tile';
 import { direction, tBoard, tRow, } from './Types';
@@ -167,9 +167,6 @@ export class Board {
       this.isMoving = true
     }
 
-    if (isGameOver(this.board)) {
-      alert("Game over")
-    }
     return this;
   };
 }

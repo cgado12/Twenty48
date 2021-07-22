@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import '../styles/GameBoard.scss'
 import { Board } from '../utils/Board'
-import { isGameWon } from '../utils/BoardUtils'
+import { isGameOver, isGameWon } from '../utils/BoardUtils'
 import { useRecoilValue } from 'recoil'
 import { ThemeState } from '../state/Atoms'
 import '../styles/DarkTileStyles.scss'
@@ -63,6 +63,10 @@ const GameBoard: React.FC<GameBoardProps> = ({
 
     if (score !== 0) {
       updateScore(gameboard.score)
+    }
+
+    if (isGameOver(board)) {
+      alert("Game over")
     }
 
     if (isGameWon(board)) {

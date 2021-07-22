@@ -46,12 +46,17 @@ export const isGameOver = (board: tBoard): boolean => {
       if (board[i][j].value === 0) {
         return false;
       }
-      // extend these to cover -1 and up and down
-      if (i !== 3 && board[i][j] === board[i + 1][j]) {
+      if (i !== 3 && board[i][j].value === board[i + 1][j].value) {
         return false;
       }
-      if (j !== 3 && board[i][j] === board[i][j + 1]) {
+      if (j !== 3 && board[i][j].value === board[i][j + 1].value) {
         return false;
+      }
+      if (i !== 0 && board[i][j].value === board[i - 1][j].value) {
+        return false
+      }
+      if (j !== 0 && board[i][j].value === board[i][j - 1].value) {
+        return false
       }
     }
   }
