@@ -24,6 +24,20 @@ const App: React.FC = () => {
   })
 
   useEffect(() => {
+    const setTileSizeOnResize = () => {
+      const tile = document.getElementById('board-tile')
+      const tileWidth = tile?.offsetWidth
+      if (tileWidth) {
+        document.documentElement.style.setProperty("--tile-size", `${tileWidth}px`)
+      }
+    }
+    window.addEventListener('resize', setTileSizeOnResize)
+    return () => {
+      window.removeEventListener('resize', setTileSizeOnResize)
+    }
+  }, [])
+
+  useEffect(() => {
     localStorage.setItem(THEME, theme)
   }, [theme])
 
@@ -37,6 +51,7 @@ const App: React.FC = () => {
     if (startGame) {
       // Reset the game
       setGameboard({ ...gameboard.clear() })
+      updateScores(0)
       return
     }
     setStartGame(true)

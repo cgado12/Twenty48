@@ -34,6 +34,22 @@ export class Tile {
     return this
   }
 
+  reset = (i: number, j: number): this => {
+    this.prevCol = j
+    this.prevRow = i
+    this.curRow = i
+    this.curCol = j
+    this.new = false
+    this.combined = false
+    return this
+  }
+
+  setCurrentPosition = (i: number, j: number): this => {
+    this.curRow = i
+    this.curCol = j
+    return this
+  }
+
   notNew = (): this => {
     this.new = false
     return this

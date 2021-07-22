@@ -23,8 +23,8 @@ const BoardTile: React.FC<BoardTileProps> = ({
   return (
     <>
       <div
-        key={`${Math.random()}`}
-        id={`${colorClass ? `${colorClass}-${theme}` : ''}`}
+        key={`${tile.id}`}
+        id={`${colorClass ? `${colorClass}-${theme}` : 'board-tile'}`}
         className={`board-tile board-tile-${theme} ${newClass} ${combinedClass} ${tile.attr} `}
       >
         <div

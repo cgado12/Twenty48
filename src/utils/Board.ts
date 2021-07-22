@@ -90,16 +90,10 @@ export class Board {
     let rotated = false;
     let played = true;
 
-    //set all tile prev postitions
-    //set all tiles.new on board to false
+    // reset tile new, combined, and position values
     for (let i = 0; i < 4; i++) {
       for (let j = 0; j < 4; j++) {
-        this.board[i][j].prevCol = j
-        this.board[i][j].prevRow = i
-        this.board[i][j].curRow = i
-        this.board[i][j].curCol = j
-        this.board[i][j].notNew()
-        this.board[i][j].combined = false
+        this.board[i][j].reset(i, j)
       }
     }
 
@@ -142,8 +136,7 @@ export class Board {
     //set all tile curr positions
     for (let i = 0; i < 4; i++) {
       for (let j = 0; j < 4; j++) {
-        this.board[i][j].curRow = i
-        this.board[i][j].curCol = j
+        this.board[i][j].setCurrentPosition(i, j)
       }
     }
 
@@ -164,7 +157,6 @@ export class Board {
             default:
               this.board[i][j].attr = `hor-r-${this.board[i][j].curCol - this.board[i][j].prevCol} overlay`
           }
-          // this.board[i][j].attr = this.board[i][j].attr.concat(' combined')
         }
       }
     }
@@ -174,6 +166,7 @@ export class Board {
       this.addNewValue();
       this.isMoving = true
     }
+
     if (isGameOver(this.board)) {
       alert("Game over")
     }

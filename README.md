@@ -25,4 +25,5 @@ Please consider pulling the repo or downloading the project as a zip! To run loc
 - [ ] Add Husky pre-commit hooks
 - [ ] Add badges for build, laguages, tests, and other fun stuff :)
 - [ ] Create nice modal for clearing best score
+- [ ] Tune css a little better for mobile
 

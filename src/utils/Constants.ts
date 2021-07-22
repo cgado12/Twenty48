@@ -16,7 +16,7 @@ export const DEFAULT_GAMEBOARD: tBoard = [
 ];
 
 // choice array is for randomizing where a new value will appear after a move is made
-export const CHOICE_ARR: Array<number> = [2, 4, 2, 2, 2, 4, 2, 2, 2, 2, 2, 4, 2, 4, 2, 4, 2, 2];
+export const CHOICE_ARR: Array<number> = [2, 4, 2, 2, 2, 4, 2, 2, 2, 2, 2, 4, 2, 2, 2, 2, 2, 2];
 export const CHOICE_ARR_LEN = CHOICE_ARR.length;
 export const DEFAULT_ROW_LEN = 4;
 export const THEME = 'theme';
