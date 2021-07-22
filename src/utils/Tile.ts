@@ -38,6 +38,7 @@ export class Tile {
     this.new = false
     return this
   }
+
   setNew = (): this => {
     this.new = true
     return this

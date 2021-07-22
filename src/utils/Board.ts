@@ -75,6 +75,8 @@ export class Board {
       if (a === b) {
         row[i].value = a + b;
         row[i].combined = true
+        // row[i].prevCol = row[i - 1].prevCol
+        // row[i].prevRow = row[i - 1].prevRow
         this.score += row[i].value;
         row[i - 1].value = 0;
       }

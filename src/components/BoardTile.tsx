@@ -6,7 +6,6 @@ import '../styles/TileAnimations.scss'
 import { Tile } from '../utils/Tile';
 import '../styles/Utility.scss'
 
-
 interface BoardTileProps {
   tile: Tile
   rowPos: number
@@ -21,18 +20,19 @@ const BoardTile: React.FC<BoardTileProps> = ({
   const newClass = tile.value !== 0 && tile.new ? 'new' : ''
   const combinedClass = tile.combined ? 'combined' : ''
 
-  return (<>
-    <div
-      key={`${Math.random()}`}
-      id={`${colorClass ? `${colorClass}-${theme}` : ''}`}
-      className={`board-tile board-tile-${theme} ${newClass} ${combinedClass} ${tile.attr} `}
-    >
+  return (
+    <>
       <div
-        className={`board-value `}>
-        {tile.value !== 0 ? tile.value : ''}
+        key={`${Math.random()}`}
+        id={`${colorClass ? `${colorClass}-${theme}` : ''}`}
+        className={`board-tile board-tile-${theme} ${newClass} ${combinedClass} ${tile.attr} `}
+      >
+        <div
+          className={`board-value `}>
+          {tile.value !== 0 ? tile.value : ''}
+        </div>
       </div>
-    </div>
-  </>
+    </>
   )
 }
 
