@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
-import './styles/App.scss';
-import GameBoard from './components/GameBoard';
-import GameHeader from './components/GameHeader';
-import { BESTSCORE, THEME, ThemeType, } from './utils/Constants';
+import React, { useEffect, useState } from 'react'
+import logo from './logo.svg'
+import './styles/App.scss'
+import GameBoard from './components/GameBoard'
+import GameHeader from './components/GameHeader'
+import { BESTSCORE, THEME, ThemeType } from './utils/Constants'
 import { initialScores, IScores } from './utils/Types'
-import { Board } from './utils/Board';
-import { useRecoilState } from 'recoil';
-import { ThemeState } from './state/Atoms';
-import Switch from "react-switch";
+import { Board } from './utils/Board'
+import { useRecoilState } from 'recoil'
+import { ThemeState } from './state/Atoms'
+import Switch from 'react-switch'
 import { GiMoonBats, GiUbisoftSun } from 'react-icons/gi'
 
 const App: React.FC = () => {
@@ -19,20 +19,23 @@ const App: React.FC = () => {
     const bs = localStorage.getItem(BESTSCORE)
     return {
       ...initialScores,
-      bestScore: !bs ? initialScores.bestScore : bs
+      bestScore: !bs ? initialScores.bestScore : bs,
     }
   })
 
   useEffect(() => {
-    const setTileSizeOnResize = () => {
+    const setTileSizeOnResize = (): void => {
       const tile = document.getElementById('board-tile')
       const tileWidth = tile?.offsetWidth
       if (tileWidth) {
-        document.documentElement.style.setProperty("--tile-size", `${tileWidth}px`)
+        document.documentElement.style.setProperty(
+          '--tile-size',
+          `${tileWidth}px`,
+        )
       }
     }
     window.addEventListener('resize', setTileSizeOnResize)
-    return () => {
+    return (): void => {
       window.removeEventListener('resize', setTileSizeOnResize)
     }
   }, [])
@@ -47,7 +50,6 @@ const App: React.FC = () => {
   }
 
   const handleStartGame = (): void => {
-
     if (startGame) {
       // Reset the game
       setGameboard({ ...gameboard.clear() })
@@ -58,7 +60,9 @@ const App: React.FC = () => {
   }
 
   const removeBestScore = (): void => {
-    const resp = window.confirm("This will REMOVE your high-score, are you sure you'd like to continue?")
+    const resp = window.confirm(
+      "This will REMOVE your high-score, are you sure you'd like to continue?",
+    )
     if (resp) {
       localStorage.clear()
       setScores({ ...initialScores, score: scores.score })
@@ -74,7 +78,6 @@ const App: React.FC = () => {
     setScores({ ...scores, score: score })
   }
 
-
   return (
     <div className={`App App-${theme}`}>
       <div>
@@ -86,8 +89,10 @@ const App: React.FC = () => {
           uncheckedIcon={<GiMoonBats size="22px" className="switch-icon" />}
           checkedIcon={<GiUbisoftSun size="22px" className="switch-icon" />}
           className="switch"
-          onChange={() => {
-            setTheme(theme === ThemeType.LIGHT ? ThemeType.DARK : ThemeType.LIGHT)
+          onChange={(): void => {
+            setTheme(
+              theme === ThemeType.LIGHT ? ThemeType.DARK : ThemeType.LIGHT,
+            )
           }}
           checked={theme === ThemeType.LIGHT ? true : false}
         />
@@ -96,7 +101,6 @@ const App: React.FC = () => {
       </div>
 
       <div className="content-area">
-
         <div className="gameboard">
           <GameHeader
             scores={scores}
@@ -113,10 +117,9 @@ const App: React.FC = () => {
           />
           <h5>Version: 0.1.0</h5>
         </div>
-
       </div>
-    </div >
-  );
+    </div>
+  )
 }
 
-export default App;
+export default App

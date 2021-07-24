@@ -1,11 +1,11 @@
-import { getInitialTile } from './Tile';
-import { tBoard } from './Types';
+import { getInitialTile } from './Tile'
+import { tBoard } from './Types'
 /**
  * CONSTANTS and Enums
  */
 
 // localstorage keys
-export const BESTSCORE = 'bestScore';
+export const BESTSCORE = 'bestScore'
 
 // initial gameboard
 export const DEFAULT_GAMEBOARD: tBoard = [
@@ -13,13 +13,15 @@ export const DEFAULT_GAMEBOARD: tBoard = [
   [getInitialTile(), getInitialTile(), getInitialTile(), getInitialTile()],
   [getInitialTile(), getInitialTile(), getInitialTile(), getInitialTile()],
   [getInitialTile(), getInitialTile(), getInitialTile(), getInitialTile()],
-];
+]
 
 // choice array is for randomizing where a new value will appear after a move is made
-export const CHOICE_ARR: Array<number> = [2, 4, 2, 2, 2, 4, 2, 2, 2, 2, 2, 4, 2, 2, 2, 2, 2, 2];
-export const CHOICE_ARR_LEN = CHOICE_ARR.length;
-export const DEFAULT_ROW_LEN = 4;
-export const THEME = 'theme';
+export const CHOICE_ARR: Array<number> = [
+  2, 4, 2, 2, 2, 4, 2, 2, 2, 2, 2, 4, 2, 2, 2, 2, 2, 2,
+]
+export const CHOICE_ARR_LEN = CHOICE_ARR.length
+export const DEFAULT_ROW_LEN = 4
+export const THEME = 'theme'
 
 export enum ThemeType {
   DARK = 'dark',

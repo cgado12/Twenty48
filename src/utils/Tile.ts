@@ -11,7 +11,6 @@ export class Tile {
   new: boolean
   attr: string
 
-
   constructor() {
     this.id = Math.random()
     this.value = 0
@@ -59,5 +58,4 @@ export class Tile {
     this.new = true
     return this
   }
-
 }

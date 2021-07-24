@@ -1,5 +1,5 @@
-import { THEME, ThemeType, } from '../utils/Constants';
-import { atom } from 'recoil';
+import { THEME, ThemeType } from '../utils/Constants'
+import { atom } from 'recoil'
 
 export const getTheme = (): ThemeType => {
   const t = localStorage.getItem(THEME)
@@ -7,6 +7,6 @@ export const getTheme = (): ThemeType => {
 }
 
 export const ThemeState = atom({
-  key: "theme",
-  default: getTheme()
+  key: 'theme',
+  default: getTheme(),
 })
