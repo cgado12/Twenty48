@@ -27,14 +27,20 @@ const App: React.FC = () => {
     const setTileSizeOnResize = (): void => {
       const tile = document.getElementById('board-tile')
       const tileWidth = tile?.offsetWidth
+      const tileHeight = tile?.offsetHeight
       if (tileWidth) {
         document.documentElement.style.setProperty(
-          '--tile-size',
+          '--tile-width',
           `${tileWidth}px`,
+        )
+        document.documentElement.style.setProperty(
+          '--tile-height',
+          `${tileHeight}px`,
         )
       }
     }
     window.addEventListener('resize', setTileSizeOnResize)
+    setTileSizeOnResize()
     return (): void => {
       window.removeEventListener('resize', setTileSizeOnResize)
     }
