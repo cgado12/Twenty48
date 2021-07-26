@@ -7,7 +7,6 @@ import { ThemeState } from '../state/Atoms'
 import '../styles/DarkTileStyles.scss'
 import '../styles/LightTileStyles.scss'
 import BoardTile from './BoardTile'
-import { useSwipeable } from 'react-swipeable'
 
 interface GameBoardProps {
   gameboard: Board
@@ -23,21 +22,6 @@ const GameBoard: React.FC<GameBoardProps> = ({
   setGameboard,
 }) => {
   const theme = useRecoilValue(ThemeState)
-  const swipeHandlers = useSwipeable({
-    onSwipedLeft: () => {
-      setGameboard({ ...gameboard.move('left') })
-    },
-    onSwipedUp: () => {
-      setGameboard({ ...gameboard.move('up') })
-    },
-    onSwipedRight: () => {
-      setGameboard({ ...gameboard.move('right') })
-    },
-    onSwipedDown: () => {
-      setGameboard({ ...gameboard.move('down') })
-    },
-  })
-  const useSwipeHandlers = startGame ? swipeHandlers : {}
 
   const arrowKeyChecker = (e: KeyboardEvent): void => {
     // block keypresses except refresh
@@ -93,10 +77,7 @@ const GameBoard: React.FC<GameBoardProps> = ({
 
   return (
     <>
-      <div
-        {...useSwipeHandlers}
-        className={`gameboard-board gameboard-board-${theme}`}
-      >
+      <div className={`gameboard-board gameboard-board-${theme}`}>
         {gameboard?.board?.map((row, rIdx) => (
           <div key={`${rIdx}-${Math.random()}`} className="gameboard-board-row">
             {row.map((r, cIdx) => {

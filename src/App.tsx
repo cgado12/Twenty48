@@ -11,6 +11,7 @@ import { ThemeState } from './state/Atoms'
 import Switch from 'react-switch'
 import { GiMoonBats, GiUbisoftSun } from 'react-icons/gi'
 import './styles/MobileStyle.scss'
+import { useSwipeable } from 'react-swipeable'
 
 const App: React.FC = () => {
   const [theme, setTheme] = useRecoilState<ThemeType>(ThemeState)
@@ -23,6 +24,21 @@ const App: React.FC = () => {
       bestScore: !bs ? initialScores.bestScore : bs,
     }
   })
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: () => {
+      setGameboard({ ...gameboard.move('left') })
+    },
+    onSwipedUp: () => {
+      setGameboard({ ...gameboard.move('up') })
+    },
+    onSwipedRight: () => {
+      setGameboard({ ...gameboard.move('right') })
+    },
+    onSwipedDown: () => {
+      setGameboard({ ...gameboard.move('down') })
+    },
+  })
+  const useSwipeHandlers = startGame ? swipeHandlers : {}
 
   useEffect(() => {
     const setTileSizeOnResize = (): void => {
@@ -107,7 +123,7 @@ const App: React.FC = () => {
         <img src={logo} className="App-logo" alt="logo" />
       </div>
 
-      <div className="content-area">
+      <div {...useSwipeHandlers} className="content-area">
         <div className="gameboard">
           <GameHeader
             scores={scores}
