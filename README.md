@@ -24,6 +24,5 @@ There is an electron wrapped version of the app that can be found under the bran
 - [ ] Create a nice modal for Gameover,Game won, and clearing score
 - [ ] Create builds for mobile
 - [ ] Add Husky pre-commit hooks
-- [ ] Add badges for build, laguages, tests, and other fun stuff :)
 - [ ] Tune css a little better for mobile
 
