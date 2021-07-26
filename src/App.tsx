@@ -10,6 +10,7 @@ import { useRecoilState } from 'recoil'
 import { ThemeState } from './state/Atoms'
 import Switch from 'react-switch'
 import { GiMoonBats, GiUbisoftSun } from 'react-icons/gi'
+import './styles/MobileStyle.scss'
 
 const App: React.FC = () => {
   const [theme, setTheme] = useRecoilState<ThemeType>(ThemeState)

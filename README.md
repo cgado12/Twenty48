@@ -22,13 +22,10 @@ Please consider pulling the repo or downloading the project as a zip! To run loc
 There is an electron wrapped version of the app that can be found under the branch: [dev-electron](https://github.com/cgado12/Twenty48/tree/dev-electron). The branch contains an updated `README` with instructions for running/building the app. You may need to `rm -rf node_modules && rm package.lock` and/or run `npm install` when switching (and working!) between electron and non electron versions of the app. Electron dependancies are not added to the app where it is not used. Please consider downloading a desktop compatible version from the releases section!
 
 ### Tasklist
-- [ ] Remove any un-necessary code and update where needed
-- [ ] Update the tile combining animation to include tile sliding.
 - [ ] Investigate tile box glitch on tiles right before they slide to new position.
 - [ ] Write tests 
 - [ ] Feature to inc/dec the amount of rows/cols
 - [ ] Create a nice modal for Gameover,Game won, and clearing score
-- [ ] Create builds for mobile
+- [ ] Create builds for mobile?
 - [ ] Add Husky pre-commit hooks
-- [ ] Tune css a little better for mobile
 

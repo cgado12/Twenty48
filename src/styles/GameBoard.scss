@@ -77,33 +77,3 @@
     }
   }
 }
-
-
-@media screen and (max-width : 600px) and (max-height: 700px) {
-  .gameboard {
-    width: 90%;
-    height: 70%;
-
-    &-header {
-      margin-bottom: 0;
-    }
-
-    &-board {
-      margin: 0 3vh;
-      margin-bottom: 15vh;
-
-      &-row {
-        .board-tile {
-          padding: 2vw;
-          width: 10vw;
-          height: 5vh;
-          overflow: auto;
-
-          .board-value {
-            font-size: 1.65rem;
-          }
-        }
-      }
-    }
-  }
-}
