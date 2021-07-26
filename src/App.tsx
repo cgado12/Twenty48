@@ -14,7 +14,7 @@ import './styles/MobileStyle.scss'
 
 const App: React.FC = () => {
   const [theme, setTheme] = useRecoilState<ThemeType>(ThemeState)
-  const [gameboard, setGameboard] = useState(new Board())
+  const [gameboard, setGameboard] = useState<Board>(new Board())
   const [startGame, setStartGame] = useState<boolean>(false)
   const [scores, setScores] = useState<IScores>(() => {
     const bs = localStorage.getItem(BESTSCORE)
@@ -71,7 +71,7 @@ const App: React.FC = () => {
       "This will REMOVE your high-score, are you sure you'd like to continue?",
     )
     if (resp) {
-      localStorage.clear()
+      localStorage.removeItem(BESTSCORE)
       setScores({ ...initialScores, score: scores.score })
     }
   }

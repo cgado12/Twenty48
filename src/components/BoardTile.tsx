@@ -4,12 +4,9 @@ import { ThemeState } from '../state/Atoms'
 import { getColorId } from '../utils/BoardUtils'
 import '../styles/TileAnimations.scss'
 import { Tile } from '../utils/Tile'
-import '../styles/Utility.scss'
 
 interface BoardTileProps {
   tile: Tile
-  rowPos: number
-  colPos: number
 }
 
 const BoardTile: React.FC<BoardTileProps> = ({ tile }) => {

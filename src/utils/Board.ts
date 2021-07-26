@@ -80,8 +80,6 @@ export class Board {
       if (a === b) {
         row[i].value = a + b
         row[i].combined = true
-        // row[i].prevCol = row[i - 1].prevCol
-        // row[i].prevRow = row[i - 1].prevRow
         this.score += row[i].value
         row[i - 1].value = 0
       }
@@ -148,27 +146,29 @@ export class Board {
     for (let i = 0; i < 4; i++) {
       for (let j = 0; j < 4; j++) {
         if (this.board[i][j].value) {
+          /* eslint-disable */
           switch (direction) {
             case 'up':
-              this.board[i][j].attr = `ver-u-${
-                this.board[i][j].prevRow - this.board[i][j].curRow
-              } overlay`
+              this.board[i][j].attr = `
+                ver-u-${this.board[i][j].prevRow - this.board[i][j].curRow} overlay
+              `
               break
             case 'down':
-              this.board[i][j].attr = `ver-d-${
-                this.board[i][j].curRow - this.board[i][j].prevRow
-              } overlay`
+              this.board[i][j].attr = `
+                ver-d-${this.board[i][j].curRow - this.board[i][j].prevRow} overlay
+              `
               break
             case 'left':
-              this.board[i][j].attr = `hor-l-${
-                this.board[i][j].prevCol - this.board[i][j].curCol
-              } overlay`
+              this.board[i][j].attr = `
+                hor-l-${this.board[i][j].prevCol - this.board[i][j].curCol} overlay
+              `
               break
             default:
-              this.board[i][j].attr = `hor-r-${
-                this.board[i][j].curCol - this.board[i][j].prevCol
-              } overlay`
+              this.board[i][j].attr = `
+                hor-r-${this.board[i][j].curCol - this.board[i][j].prevCol} overlay
+              `
           }
+          /* eslint-enable */
         }
       }
     }

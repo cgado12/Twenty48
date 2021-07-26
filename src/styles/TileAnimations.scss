@@ -4,6 +4,11 @@
   --tile-height: 125px;
 }
 
+// for top layer of tiles on board
+.overlay {
+  position: absolute !important;
+  z-index: 2 !important;
+}
 
 // new tile 
 .new {

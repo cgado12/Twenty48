@@ -22,6 +22,7 @@ const GameBoard: React.FC<GameBoardProps> = ({
   updateScore,
   setGameboard,
 }) => {
+  const theme = useRecoilValue(ThemeState)
   const swipeHandlers = useSwipeable({
     onSwipedLeft: () => {
       setGameboard({ ...gameboard.move('left') })
@@ -36,7 +37,7 @@ const GameBoard: React.FC<GameBoardProps> = ({
       setGameboard({ ...gameboard.move('down') })
     },
   })
-  const theme = useRecoilValue(ThemeState)
+  const useSwipeHandlers = startGame ? swipeHandlers : {}
 
   const arrowKeyChecker = (e: KeyboardEvent): void => {
     // block keypresses except refresh
@@ -93,7 +94,7 @@ const GameBoard: React.FC<GameBoardProps> = ({
   return (
     <>
       <div
-        {...swipeHandlers}
+        {...useSwipeHandlers}
         className={`gameboard-board gameboard-board-${theme}`}
       >
         {gameboard?.board?.map((row, rIdx) => (
@@ -104,7 +105,7 @@ const GameBoard: React.FC<GameBoardProps> = ({
                   key={`${cIdx}-${Math.random()}`}
                   className={`underlay underlay-${theme}`}
                 >
-                  <BoardTile tile={r} rowPos={rIdx} colPos={cIdx} />
+                  <BoardTile tile={r} />
                 </div>
               )
             })}
