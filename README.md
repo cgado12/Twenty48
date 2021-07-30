@@ -16,10 +16,11 @@ Get a taste of that puzzling goodness, [here!](https://cgado12.github.io/Twenty4
 Please consider pulling the repo or downloading the project as a zip! To run locally please use a terminal and navigate to the project directory.
 
 1) run: `npm install` to install dependancies
-3) run: `npm start` to start the project.
+2) run: `npm start` to start the project.
 
-### Desktop Mode
-There is an electron wrapped version of the app that can be found under the branch: [dev-electron](https://github.com/cgado12/Twenty48/tree/dev-electron). The branch contains an updated `README` with instructions for running/building the app. You may need to `rm -rf node_modules && rm package.lock` and/or run `npm install` when switching (and working!) between electron and non electron versions of the app. Electron dependancies are not added to the app where it is not used. Please consider downloading a desktop compatible version from the releases section!
+### Desktop and Mobile Releases
+You may play the game at the demo link above or pulling the repository. However, I have created separete repositories to build a desktop version using [Electron](https://github.com/electron/electron) and also mobile versions using [Capacitor](https://github.com/ionic-team/capacitor). These versions of the application are available under the [Releases](https://github.com/cgado12/Twenty48/releases) section.
+- You may also download the app from the app stores here: 
 
 ### Known Issues
-- Chrome on IOS mobile does not play sliding transitions.
+- Chrome on IOS mobile *sometimes does not play sliding transitions.
