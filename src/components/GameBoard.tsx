@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import '../styles/GameBoard.scss'
 import { Board } from '../utils/Board'
 import { isGameOver, isGameWon } from '../utils/BoardUtils'
@@ -22,6 +22,7 @@ const GameBoard: React.FC<GameBoardProps> = ({
   setGameboard,
 }) => {
   const theme = useRecoilValue(ThemeState)
+  const gameWonRef = useRef(false)
 
   const arrowKeyChecker = (e: KeyboardEvent): void => {
     // block keypresses except refresh
@@ -69,8 +70,9 @@ const GameBoard: React.FC<GameBoardProps> = ({
       alert('Game over')
     }
 
-    if (isGameWon(board)) {
+    if (!gameWonRef.current && isGameWon(board)) {
       alert('You won!')
+      gameWonRef.current = true
     }
     // eslint-disable-next-line
   }, [gameboard, gameboard.board, gameboard.score])
