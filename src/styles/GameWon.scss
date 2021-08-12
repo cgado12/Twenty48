@@ -1,0 +1,95 @@
+.game-won-container {
+  display: flex;
+  background-color: rgba(30, 30, 30, 0.5);
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  &-box {
+    height: 40vh;
+    width: 50vw;
+    margin: auto;
+    background: rgba(60, 60, 60, .7);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 14px 2px;
+  }
+
+  &-text {
+    font-size: 8vh;
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    // same css in gameHeader -> optimize
+    .game-won-btn {
+      height: 3vh;
+      min-height: fit-content;
+      min-width: max-content;
+      border: 2px solid black;
+      border-radius: 10px;
+      padding: 5px;
+      box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.60%);
+
+      &-light {
+        background-color: #9e9491;
+        color: #423d33;
+      }
+
+      &-dark {
+        background-color: #423d33;
+        color: #7e7e7e;
+      }
+
+      span {
+        display: flex;
+        height: inherit;
+        justify-content: center;
+        align-items: center;
+      }
+
+      &-light:hover {
+        background-color: #867a76;
+
+        &:active {
+          background-color: #867a76;
+          transform: translateY(4px);
+        }
+      }
+
+      &-dark:hover {
+        background-color: #343028;
+
+        &:active {
+          background-color: #343028;
+          transform: translateY(4px);
+        }
+      }
+
+    }
+
+  }
+}
+
+/*
+     position: absolute;
+    background-color: grey;
+    width: 500px; 
+    height: 500px;
+    z-index: 999;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-bottom: auto;
+     margin-top: auto;
+*/

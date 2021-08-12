@@ -1,3 +1,4 @@
+import { ConfettiConfig } from 'react-dom-confetti'
 import { getInitialTile } from './Tile'
 import { tBoard } from './Types'
 /**
@@ -6,6 +7,7 @@ import { tBoard } from './Types'
 
 // localstorage keys
 export const BESTSCORE = 'bestScore'
+export const GAMESTATE = 'gameState'
 
 // initial gameboard
 export const DEFAULT_GAMEBOARD: tBoard = [
@@ -40,4 +42,18 @@ export enum id {
   FIVETWELVE = 'five-twelve',
   TENTWENTYFOUR = 'ten-twenty-four',
   TWENTYFORTYEIGHT = 'twenty-fourty-eight',
+}
+
+// gameWon confetti config
+export const confettiConfig: ConfettiConfig = {
+  angle: 90,
+  spread: 360,
+  startVelocity: 70,
+  elementCount: 550,
+  dragFriction: 0.12,
+  duration: 4500,
+  stagger: 0.3,
+  width: '12px',
+  height: '12px',
+  colors: ['#a864fd', '#29cdff', '#78ff44', '#ff718d', '#fdff6a'],
 }

@@ -57,6 +57,16 @@ export class Board {
     return this.init()
   }
 
+  setWin = (): this => {
+    this.win = true
+    return this
+  }
+
+  setLose = (): this => {
+    this.lose = true
+    return this
+  }
+
   operate = (row: tRow): tRow => {
     row = this.slide(row)
     row = this.combine(row)

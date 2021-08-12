@@ -12,9 +12,12 @@ import Switch from 'react-switch'
 import { GiMoonBats, GiUbisoftSun } from 'react-icons/gi'
 import './styles/MobileStyle.scss'
 import { useSwipeable } from 'react-swipeable'
+import { isGameOver, isGameWon } from './utils/BoardUtils'
+import GameWon from './components/GameWon'
 
 const App: React.FC = () => {
   const [theme, setTheme] = useRecoilState<ThemeType>(ThemeState)
+
   const [gameboard, setGameboard] = useState<Board>(new Board())
   const [startGame, setStartGame] = useState<boolean>(false)
   const [scores, setScores] = useState<IScores>(() => {
@@ -125,6 +128,21 @@ const App: React.FC = () => {
 
       <div {...useSwipeHandlers} className="content-area">
         <div className="gameboard">
+          {/*eslint-disable*/}
+          {((!gameboard.win && isGameWon(gameboard.board)) ||
+            (gameboard.lose && isGameOver(gameboard.board))) && (
+              <GameWon
+                isGameWon={false}
+                reset={(): void => {
+                  handleStartGame()
+                }}
+                keepGoing={(): void => {
+                  setGameboard({ ...gameboard.setWin() })
+                }}
+                renderForLose={gameboard.lose}
+              />
+            )}
+          {/*eslint-enable*/}
           <GameHeader
             scores={scores}
             startGame={startGame}
