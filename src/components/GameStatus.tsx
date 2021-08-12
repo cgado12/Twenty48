@@ -6,14 +6,14 @@ import '../styles/GameWon.scss'
 import { confettiConfig } from '../utils/Constants'
 import { useEffect } from 'react'
 
-interface GameWonProps {
+interface GameStatusProps {
   isGameWon: boolean
   reset: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   keepGoing: () => void
   renderForLose: boolean
 }
 
-const GameWon: React.FC<GameWonProps> = ({
+const GameStatus: React.FC<GameStatusProps> = ({
   isGameWon,
   reset,
   keepGoing,
@@ -26,6 +26,8 @@ const GameWon: React.FC<GameWonProps> = ({
 
   useEffect(() => {
     setTimeout(() => {
+      // the confetti component only fires when active changes
+      // but this component only renders when the game is won
       setGameWon(true)
     }, 500)
   }, [])
@@ -57,4 +59,4 @@ const GameWon: React.FC<GameWonProps> = ({
   )
 }
 
-export default GameWon
+export default GameStatus

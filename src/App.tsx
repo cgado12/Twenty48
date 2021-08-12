@@ -3,7 +3,7 @@ import logo from './logo.svg'
 import './styles/App.scss'
 import GameBoard from './components/GameBoard'
 import GameHeader from './components/GameHeader'
-import { BESTSCORE, THEME, ThemeType } from './utils/Constants'
+import { BESTSCORE, GAMESTATE, THEME, ThemeType } from './utils/Constants'
 import { initialScores, IScores } from './utils/Types'
 import { Board } from './utils/Board'
 import { useRecoilState } from 'recoil'
@@ -13,13 +13,19 @@ import { GiMoonBats, GiUbisoftSun } from 'react-icons/gi'
 import './styles/MobileStyle.scss'
 import { useSwipeable } from 'react-swipeable'
 import { isGameOver, isGameWon } from './utils/BoardUtils'
-import GameWon from './components/GameWon'
+import GameStatus from './components/GameStatus'
 
 const App: React.FC = () => {
   const [theme, setTheme] = useRecoilState<ThemeType>(ThemeState)
 
-  const [gameboard, setGameboard] = useState<Board>(new Board())
-  const [startGame, setStartGame] = useState<boolean>(false)
+  const [gameboard, setGameboard] = useState<Board>(() => {
+    const storedBoard = localStorage.getItem(GAMESTATE)
+    return storedBoard !== '' && storedBoard !== null
+      ? new Board(JSON.parse(storedBoard))
+      : new Board(undefined)
+  })
+  const [startGame, setStartGame] = useState<boolean>(gameboard.started)
+
   const [scores, setScores] = useState<IScores>(() => {
     const bs = localStorage.getItem(BESTSCORE)
     return {
@@ -27,6 +33,7 @@ const App: React.FC = () => {
       bestScore: !bs ? initialScores.bestScore : bs,
     }
   })
+
   const swipeHandlers = useSwipeable({
     onSwipedLeft: () => {
       setGameboard({ ...gameboard.move('left') })
@@ -65,6 +72,10 @@ const App: React.FC = () => {
       window.removeEventListener('resize', setTileSizeOnResize)
     }
   }, [])
+
+  useEffect(() => {
+    localStorage.setItem(GAMESTATE, JSON.stringify(gameboard))
+  }, [gameboard])
 
   useEffect(() => {
     localStorage.setItem(THEME, theme)
@@ -131,7 +142,7 @@ const App: React.FC = () => {
           {/*eslint-disable*/}
           {((!gameboard.win && isGameWon(gameboard.board)) ||
             (gameboard.lose && isGameOver(gameboard.board))) && (
-              <GameWon
+              <GameStatus
                 isGameWon={false}
                 reset={(): void => {
                   handleStartGame()

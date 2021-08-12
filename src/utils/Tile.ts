@@ -1,4 +1,4 @@
-export const getInitialTile = (): Tile => new Tile()
+export const getInitialTile = (): Tile => new Tile(undefined)
 
 export class Tile {
   id: number
@@ -11,7 +11,20 @@ export class Tile {
   new: boolean
   attr: string
 
-  constructor() {
+  constructor(tile: Tile | undefined) {
+    if (tile) {
+      this.id = tile.id
+      this.value = tile.value
+      this.curRow = -tile.curRow
+      this.curCol = -tile.curCol
+      this.prevRow = -tile.prevRow
+      this.prevCol = -tile.prevCol
+      this.combined = tile.combined
+      this.new = tile.new
+      this.attr = tile.attr
+      return
+    }
+
     this.id = Math.random()
     this.value = 0
     this.curRow = -1
