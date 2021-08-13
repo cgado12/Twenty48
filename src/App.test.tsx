@@ -33,9 +33,9 @@ describe('Initial render App', () => {
     expect(twenty.parentElement).toHaveClass('gameboard-header-c1-dark')
   })
 
-  test('render app and switch theme', async () => {
+  test('render app and open popover', async () => {
     renderWithRecoil(<App />)
-    const switchToggle = document.getElementsByClassName('switch').item(0)
+    const settingsCog = document.getElementById('settings-cog')
     const score = screen.getByText("Score");
     const newGame = screen.getByText("New Game");
     const bestScore = screen.getByText("Best Score");
@@ -45,15 +45,16 @@ describe('Initial render App', () => {
     expect(newGame).toBeInTheDocument();
     expect(bestScore).toBeInTheDocument();
     expect(clearBtn).toBeInTheDocument();
-    expect(switchToggle?.parentElement?.parentElement).toHaveClass('App-dark')
-
-    //change theme with toggle
-    const toggle = switchToggle?.firstChild
-    if (switchToggle && toggle) {
-      fireEvent.click(toggle)
+    if (settingsCog) {
+      fireEvent.click(settingsCog)
     }
-    // check for light mode class
-    expect(switchToggle?.parentElement?.parentElement).toHaveClass('App-light')
+    const popover = document.getElementsByClassName('popover-body')[0]
+    expect(popover).toBeInTheDocument();
+
+    const theme = screen.getByText('dark')
+    const cache = screen.getByText('Clear')
+    expect(theme).toBeInTheDocument();
+    expect(cache).toBeInTheDocument();
   })
 
 });

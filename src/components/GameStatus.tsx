@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useRecoilValue } from 'recoil'
 import { ThemeState } from '../state/Atoms'
 import Confetti from 'react-dom-confetti'
-import '../styles/GameWon.scss'
+import '../styles/GameStatus.scss'
 import { confettiConfig } from '../utils/Constants'
 import { useEffect } from 'react'
 
