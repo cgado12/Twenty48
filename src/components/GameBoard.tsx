@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import '../styles/GameBoard.scss'
 import { Board } from '../utils/Board'
-import { isGameOver, isGameWon } from '../utils/BoardUtils'
+import { isGameOver } from '../utils/BoardUtils'
 import { useRecoilValue } from 'recoil'
 import { ThemeState } from '../state/Atoms'
 import '../styles/DarkTileStyles.scss'
@@ -22,7 +22,6 @@ const GameBoard: React.FC<GameBoardProps> = ({
   setGameboard,
 }) => {
   const theme = useRecoilValue(ThemeState)
-  const gameWonRef = useRef(false)
 
   const arrowKeyChecker = (e: KeyboardEvent): void => {
     // block keypresses except refresh
@@ -67,13 +66,9 @@ const GameBoard: React.FC<GameBoardProps> = ({
     }
 
     if (isGameOver(board)) {
-      alert('Game over')
+      setGameboard({ ...gameboard.setLose() })
     }
 
-    if (!gameWonRef.current && isGameWon(board)) {
-      alert('You won!')
-      gameWonRef.current = true
-    }
     // eslint-disable-next-line
   }, [gameboard, gameboard.board, gameboard.score])
 

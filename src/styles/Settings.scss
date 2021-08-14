@@ -1,0 +1,106 @@
+.settings-cog {
+  margin: 10px;
+  margin-right: 4%;
+  height: 2.5rem;
+  float: right;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    animation: dip linear forwards;
+  }
+}
+
+/* FOR SPINNing REACT SYMBOL */
+@media (prefers-reduced-motion: no-preference) {
+  .settings-cog {
+    animation: settings-cog-spin infinite 9s linear;
+  }
+}
+
+
+@keyframes settings-cog-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dip {
+  from {
+    transform: translateY(0px);
+  }
+
+  to {
+    transform: translateY(4px);
+  }
+}
+
+.popover-body {
+  width: 175px;
+  height: fit-content;
+  padding: 15px;
+
+  &-light {
+    background-color: #9e9491;
+    color: #423d33;
+  }
+
+  &-dark {
+    background-color: #423d33;
+    color: #7e7e7e;
+  }
+}
+
+.settings-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .react-icon {
+    height: 2.2rem;
+    align-self: center;
+    animation: settings-cog-spin infinite 5s linear;
+  }
+
+  .no-decoration {
+    text-decoration: none !important;
+  }
+
+  .center-item {
+    align-self: center;
+  }
+
+  .theme-icon {
+    margin: 10px;
+  }
+}
+
+.select {
+  &-light {
+    color: #423d33 !important;
+  }
+
+  &-dark {
+    color: #7e7e7e !important;
+  }
+}
+
+.center {
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    font-size: 110%;
+    text-decoration: underline;
+  }
+
+  &:active {
+    animation: dip linear forwards;
+  }
+}

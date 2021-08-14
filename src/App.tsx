@@ -1,22 +1,29 @@
 import React, { useEffect, useState } from 'react'
-import logo from './logo.svg'
 import './styles/App.scss'
 import GameBoard from './components/GameBoard'
 import GameHeader from './components/GameHeader'
-import { BESTSCORE, THEME, ThemeType } from './utils/Constants'
+import { BESTSCORE, GAMESTATE, ThemeType } from './utils/Constants'
 import { initialScores, IScores } from './utils/Types'
 import { Board } from './utils/Board'
-import { useRecoilState } from 'recoil'
+import { useRecoilValue } from 'recoil'
 import { ThemeState } from './state/Atoms'
-import Switch from 'react-switch'
-import { GiMoonBats, GiUbisoftSun } from 'react-icons/gi'
 import './styles/MobileStyle.scss'
 import { useSwipeable } from 'react-swipeable'
+import { isGameOver, isGameWon } from './utils/BoardUtils'
+import GameStatus from './components/GameStatus'
+import Settings from './components/Settings'
 
 const App: React.FC = () => {
-  const [theme, setTheme] = useRecoilState<ThemeType>(ThemeState)
-  const [gameboard, setGameboard] = useState<Board>(new Board())
-  const [startGame, setStartGame] = useState<boolean>(false)
+  const theme = useRecoilValue<ThemeType>(ThemeState)
+
+  const [gameboard, setGameboard] = useState<Board>(() => {
+    const storedBoard = localStorage.getItem(GAMESTATE)
+    return storedBoard !== '' && storedBoard !== null
+      ? new Board(JSON.parse(storedBoard))
+      : new Board(undefined)
+  })
+  const [startGame, setStartGame] = useState<boolean>(gameboard.started)
+
   const [scores, setScores] = useState<IScores>(() => {
     const bs = localStorage.getItem(BESTSCORE)
     return {
@@ -24,6 +31,7 @@ const App: React.FC = () => {
       bestScore: !bs ? initialScores.bestScore : bs,
     }
   })
+
   const swipeHandlers = useSwipeable({
     onSwipedLeft: () => {
       setGameboard({ ...gameboard.move('left') })
@@ -64,8 +72,8 @@ const App: React.FC = () => {
   }, [])
 
   useEffect(() => {
-    localStorage.setItem(THEME, theme)
-  }, [theme])
+    localStorage.setItem(GAMESTATE, JSON.stringify(gameboard))
+  }, [gameboard])
 
   // initial start game
   if (startGame && !gameboard?.started) {
@@ -75,6 +83,7 @@ const App: React.FC = () => {
   const handleStartGame = (): void => {
     if (startGame) {
       // Reset the game
+      localStorage.removeItem(GAMESTATE)
       setGameboard({ ...gameboard.clear() })
       updateScores(0)
       return
@@ -103,28 +112,25 @@ const App: React.FC = () => {
 
   return (
     <div className={`App App-${theme}`}>
-      <div>
-        <Switch
-          offHandleColor="#7e7e7e"
-          onHandleColor="#fee8f5"
-          onColor="#9e9491"
-          offColor="#423d33"
-          uncheckedIcon={<GiMoonBats size="22px" className="switch-icon" />}
-          checkedIcon={<GiUbisoftSun size="22px" className="switch-icon" />}
-          className="switch"
-          onChange={(): void => {
-            setTheme(
-              theme === ThemeType.LIGHT ? ThemeType.DARK : ThemeType.LIGHT,
-            )
-          }}
-          checked={theme === ThemeType.LIGHT ? true : false}
-        />
-
-        <img src={logo} className="App-logo" alt="logo" />
-      </div>
+      <Settings />
 
       <div {...useSwipeHandlers} className="content-area">
         <div className="gameboard">
+          {/*eslint-disable*/}
+          {((!gameboard.win && isGameWon(gameboard.board)) ||
+            (gameboard.lose && isGameOver(gameboard.board))) && (
+              <GameStatus
+                isGameWon={false}
+                reset={(): void => {
+                  handleStartGame()
+                }}
+                keepGoing={(): void => {
+                  setGameboard({ ...gameboard.setWin() })
+                }}
+                renderForLose={gameboard.lose}
+              />
+            )}
+          {/*eslint-enable*/}
           <GameHeader
             scores={scores}
             startGame={startGame}

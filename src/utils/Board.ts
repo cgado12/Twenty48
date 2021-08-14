@@ -19,7 +19,20 @@ export class Board {
   moved: direction
   isMoving: boolean
 
-  constructor() {
+  constructor(board: Board | undefined) {
+    if (board) {
+      /* eslint-disable */
+      this.board = board.board.map(r => r.map(t => t = new Tile(t)))
+      this.prevBoard = board.prevBoard.map(r => r.map(t => t = new Tile(t)))
+      /* eslint-enable */
+      this.score = board.score
+      this.win = board.win
+      this.lose = board.lose
+      this.started = board.started
+      this.moved = board.moved
+      this.isMoving = board.isMoving
+      return
+    }
     this.board = [...DEFAULT_GAMEBOARD]
     this.prevBoard = [...DEFAULT_GAMEBOARD]
     this.score = 0
@@ -50,11 +63,21 @@ export class Board {
   }
 
   clear = (): this => {
-    this.board = this.board.map((r) => r.map(() => new Tile()))
+    this.board = this.board.map((r) => r.map(() => new Tile(undefined)))
     this.score = 0
     this.win = false
     this.lose = false
     return this.init()
+  }
+
+  setWin = (): this => {
+    this.win = true
+    return this
+  }
+
+  setLose = (): this => {
+    this.lose = true
+    return this
   }
 
   operate = (row: tRow): tRow => {
@@ -68,7 +91,7 @@ export class Board {
     let arr = row.filter((val) => val.value)
     const missing = 4 - arr.length
     let zeros = Array(missing).fill(0)
-    zeros = zeros.map(() => new Tile())
+    zeros = zeros.map(() => new Tile(undefined))
     arr = zeros.concat(arr)
     return arr
   }
