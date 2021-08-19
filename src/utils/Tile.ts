@@ -15,10 +15,10 @@ export class Tile {
     if (tile) {
       this.id = tile.id
       this.value = tile.value
-      this.curRow = -tile.curRow
-      this.curCol = -tile.curCol
-      this.prevRow = -tile.prevRow
-      this.prevCol = -tile.prevCol
+      this.curRow = tile.curRow
+      this.curCol = tile.curCol
+      this.prevRow = tile.prevRow
+      this.prevCol = tile.prevCol
       this.combined = tile.combined
       this.new = tile.new
       this.attr = tile.attr
