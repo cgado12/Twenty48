@@ -13,6 +13,12 @@ import { isGameOver, isGameWon } from './utils/BoardUtils'
 import GameStatus from './components/GameStatus'
 import Settings from './components/Settings'
 
+/* 
+ 1) tests 
+ 2) update readme
+ 3) new builds (inc apple)
+ */
+
 const App: React.FC = () => {
   const theme = useRecoilValue<ThemeType>(ThemeState)
 

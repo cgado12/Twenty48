@@ -22,7 +22,7 @@ const GameStatus: React.FC<GameStatusProps> = ({
   const theme = useRecoilValue(ThemeState)
   const [gameWon, setGameWon] = useState(isGameWon)
   const title = renderForLose ? 'Game Over!' : 'You Won!'
-  const btnText = renderForLose ? 'Try Again' : 'Restart'
+  const btnText = renderForLose ? 'Try Again?' : 'Restart'
 
   useEffect(() => {
     setTimeout(() => {
