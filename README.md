@@ -10,6 +10,7 @@ This is a modified clone of the game 2048, which can be seen here: [2048](https:
 
 #### Demo
 Get a taste of that puzzling goodness, [here!](https://cgado12.github.io/Twenty48/)
+- Check out the Android version [here!](https://play.google.com/store/apps/details?id=com.csalgado.twentyfortyeight)
 - - - - 
 
 ### Installation
