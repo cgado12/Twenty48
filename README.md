@@ -25,4 +25,3 @@ Mobile versions of the app were made (with minimal configuration/adjustments) us
 
 ### Known Issues
 - Chrome on IOS mobile *sometimes does not play sliding transitions.
-- Electron releases contain an error where an alert will pop up each move while 2048 is on the board, this is fixed in the web version.
