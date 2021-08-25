@@ -11,6 +11,7 @@ This is a modified clone of the game 2048, which can be seen here: [2048](https:
 #### Demo
 Get a taste of that puzzling goodness, [here!](https://cgado12.github.io/Twenty48/)
 - Check out the Android version [here!](https://play.google.com/store/apps/details?id=com.csalgado.twentyfortyeight)
+- Check out the IOS/Mac version [here!](https://apps.apple.com/us/app/twenty48-multi-theme/id1582738026)
 - - - - 
 
 ### Installation
