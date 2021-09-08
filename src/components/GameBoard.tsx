@@ -60,6 +60,9 @@ const GameBoard: React.FC<GameBoardProps> = ({
 
   useEffect(() => {
     const { board, score } = gameboard
+    if (gameboard.lose) {
+      return
+    }
 
     if (score !== 0) {
       updateScore(gameboard.score)
