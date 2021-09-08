@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/Twenty48/static/css/main.259ea92b.chunk.css",
-    "main.js": "/Twenty48/static/js/main.8a3820ce.chunk.js",
-    "main.js.map": "/Twenty48/static/js/main.8a3820ce.chunk.js.map",
+    "main.css": "/Twenty48/static/css/main.655c5bbd.chunk.css",
+    "main.js": "/Twenty48/static/js/main.2cafbe80.chunk.js",
+    "main.js.map": "/Twenty48/static/js/main.2cafbe80.chunk.js.map",
     "runtime-main.js": "/Twenty48/static/js/runtime-main.01ac3cae.js",
     "runtime-main.js.map": "/Twenty48/static/js/runtime-main.01ac3cae.js.map",
     "static/js/2.b26875af.chunk.js": "/Twenty48/static/js/2.b26875af.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.385a92ea.chunk.js": "/Twenty48/static/js/3.385a92ea.chunk.js",
     "static/js/3.385a92ea.chunk.js.map": "/Twenty48/static/js/3.385a92ea.chunk.js.map",
     "index.html": "/Twenty48/index.html",
-    "static/css/main.259ea92b.chunk.css.map": "/Twenty48/static/css/main.259ea92b.chunk.css.map",
+    "static/css/main.655c5bbd.chunk.css.map": "/Twenty48/static/css/main.655c5bbd.chunk.css.map",
     "static/js/2.b26875af.chunk.js.LICENSE.txt": "/Twenty48/static/js/2.b26875af.chunk.js.LICENSE.txt",
     "static/media/logo.6ce24c58.svg": "/Twenty48/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.01ac3cae.js",
     "static/js/2.b26875af.chunk.js",
-    "static/css/main.259ea92b.chunk.css",
-    "static/js/main.8a3820ce.chunk.js"
+    "static/css/main.655c5bbd.chunk.css",
+    "static/js/main.2cafbe80.chunk.js"
   ]
 }
