@@ -93,7 +93,7 @@ const GameBoard: React.FC<GameBoardProps> = ({
           </div>
         ))}
       </div>
-      <p>
+      <p className="instruction-text">
         <i>Use the arrow keys to combine tiles and get to 2048!</i>
       </p>
     </>
