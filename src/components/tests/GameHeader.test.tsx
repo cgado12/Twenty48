@@ -1,11 +1,11 @@
-import React from 'react'
+import { vi } from 'vitest'
 import { cleanup, fireEvent, screen } from '@testing-library/react';
 import { renderWithRecoil } from '../../App.test'
 import GameHeader from '../GameHeader';
 import { initialScores } from '../../utils/Types';
 
 describe('Test Gameboard Header', () => {
-  let mockFunction = jest.fn()
+  let mockFunction = vi.fn()
 
   beforeEach(() => {
     renderWithRecoil(

@@ -3,11 +3,12 @@ import logo from '../logo.svg'
 import { FiSettings } from 'react-icons/fi'
 import { useRecoilState } from 'recoil'
 import { ThemeState } from '../state/Atoms'
-import { Divider, FormControl, NativeSelect, Popover } from '@material-ui/core'
+// import { Divider, FormControl, NativeSelect, Popover } from '@material-ui/core'
 import '../styles/Settings.scss'
 import { BESTSCORE, GAMESTATE, THEME, ThemeType } from '../utils/Constants'
 import packJson from '../../package.json'
 import { GiMoonBats, GiUbisoftSun } from 'react-icons/gi'
+import { Divider, FormControl, NativeSelect, Popover } from '@mui/material'
 
 const Settings: React.FC = () => {
   const version = packJson['version']

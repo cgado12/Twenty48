@@ -1,4 +1,4 @@
-import React from 'react';
+import { vi } from 'vitest'
 import { cleanup, fireEvent, screen } from '@testing-library/react';
 import GameStatus from '../GameStatus';
 import { renderWithRecoil } from '../../App.test';
@@ -6,8 +6,10 @@ import { renderWithRecoil } from '../../App.test';
 
 
 describe("Test Game Win|Fail", () => {
-  let mockFunction = jest.fn()
+  let mockFunction = vi.fn()
   afterEach(() => {
+    vi.clearAllMocks()
+    vi.resetAllMocks()
     cleanup()
   })
 
