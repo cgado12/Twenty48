@@ -6,12 +6,11 @@
 
 This is a modified clone of the game 2048, which can be seen here: [2048](https://2048game.com/)! This project is built using React, Typescript, and Sass. This also gave me an excuse to give [recoil](https://github.com/facebookexperimental/Recoil) a try for managing theme state, which is persisted with localstorage.
 
-*Thanks [hFriedman13](https://github.com/Hfriedman13), for your collaboration in theming and testing!:heart:*
+*Thanks [hFriedman13](https://github.com/Hfriedman13), for your collaboration in theming and testing! :heart:*
 
 #### Demo
 Get a taste of that puzzling goodness, [here!](https://cgado12.github.io/Twenty48/)
-- Check out the Android version [here!](https://play.google.com/store/apps/details?id=com.csalgado.twentyfortyeight)
-- Check out the IOS/Mac version [here!](https://apps.apple.com/us/app/twenty48-multi-theme/id1582738026)
+
 - - - - 
 
 ### Installation
@@ -21,7 +20,7 @@ Please consider pulling the repo or downloading the project as a zip! To run loc
 2) run: `npm start` to start the project.
 
 ### Mobile Releases
-Mobile versions of the app were made (with minimal configuration/adjustments) using [Capacitor](https://github.com/ionic-team/capacitor). These versions of the application are available above!
+Mobile versions of the app were made (with minimal configuration/adjustments) using [Capacitor](https://github.com/ionic-team/capacitor). 
 
 ### Known Issues
 - Chrome on IOS mobile *sometimes does not play sliding transitions.

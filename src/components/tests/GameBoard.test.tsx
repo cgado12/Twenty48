@@ -1,4 +1,4 @@
-import React from 'react'
+import { vi } from 'vitest'
 import { cleanup, fireEvent, screen } from '@testing-library/react';
 import { renderWithRecoil } from '../../App.test'
 import GameBoard from '../GameBoard';
@@ -6,7 +6,7 @@ import { Board } from '../../utils/Board';
 
 
 describe('Test Gameboard', () => {
-  let mockFunction = jest.fn()
+  let mockFunction = vi.fn()
 
   afterEach(() => {
     cleanup()

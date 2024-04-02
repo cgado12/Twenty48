@@ -19,7 +19,7 @@ export class Board {
   moved: direction
   isMoving: boolean
 
-  constructor(board: Board | undefined) {
+  constructor(board?: Board | undefined) {
     if (board) {
       /* eslint-disable */
       this.board = board.board.map(r => r.map(t => t = new Tile(t)))
